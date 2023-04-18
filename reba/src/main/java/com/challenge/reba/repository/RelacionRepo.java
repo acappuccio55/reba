@@ -10,5 +10,5 @@ import com.challenge.reba.model.Relacion;
 @Repository
 public interface RelacionRepo extends JpaRepository <Relacion, Long> {
 
-	String findByDni1AndDni2(Long dni1, Long dni2);
+	List<Relacion> findByDni1AndDni2(Long dni1, Long dni2);
 }

@@ -27,8 +27,8 @@ public class PersonaController {
 	}
 	
 	@GetMapping(value = "/relaciones/{dni1}/{dni2}")
-	private String verRelacion(Long dni1, Long dni2) {
-		return this.personaService.getRelacionEntrePersonas(dni1, dni2);
+	private void verRelacion(Long dni1, Long dni2) {
+		this.personaService.getRelacionEntrePersonas(dni1, dni2);
 	}
 	
 }
