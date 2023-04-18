@@ -31,6 +31,7 @@ public class PersonaService {
 		if (p1.getEdad() > 18 && p2.getEdad() > 18 
 				&& !(p1.getTelefono().isEmpty() || p1.getEmail().isEmpty()) 
 				&& !(p2.getTelefono().isEmpty() || p2.getEmail().isEmpty())
+				&& !(p1.getPaisDeNacimiento().isEmpty() && p2.getPaisDeNacimiento().isEmpty())
 				&& p1.getDni() != p2.getDni()) {
 		
 					rel.setDni1(dni1);
