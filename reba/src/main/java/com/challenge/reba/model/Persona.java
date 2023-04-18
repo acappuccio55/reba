@@ -1,9 +1,9 @@
 package com.challenge.reba.model;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -21,7 +21,11 @@ public class Persona {
 	@Id
 	private Long dni;
 	@Column
-	private String pais;
+	@NotNull
+	private Integer edad;
+	@Column
+	@NotNull
+	private String paisDeNacimiento;
 	@Column
 	@Email(message = "correo con formato incorrecto")
 	private String email;
@@ -41,11 +45,11 @@ public class Persona {
 	public void setDni(Long dni) {
 		this.dni = dni;
 	}
-	public String getPais() {
-		return pais;
+	public String getPaisDeNacimiento() {
+		return paisDeNacimiento;
 	}
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setPaisDeNacimiento(String pais) {
+		this.paisDeNacimiento = pais;
 	}
 	public String getEmail() {
 		return email;
@@ -58,6 +62,12 @@ public class Persona {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public Integer getEdad() {
+		return edad;
+	}
+	public void setEdad(Integer fechaDeNacimiento) {
+		this.edad = fechaDeNacimiento;
 	}
 	
 	

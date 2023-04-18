@@ -20,24 +20,26 @@ public class PersonaService {
 	private RelacionRepo relacionRepo;
 	
 	public boolean relacionarPersonas(Long dni1, Long dni2, String r) {
-		//para agregar validaciones
-		//personaRepo.findById(dni1).get();
-		//personaRepo.findById(dni2).get();
 		
 		Relacion rel = new Relacion();
+		Persona p1 = new Persona();
+		Persona p2 = new Persona();
 		
-        try {
-    		rel.setDni1(dni1);
-    		rel.setDni2(dni2);
-    		rel.setTipoDeRelacion(r);
-    		relacionRepo.save(rel);
-    		return true;
-    		
-        }catch(Exception err){
-        	
-            return false;
-        }
+		p1 = personaRepo.findById(dni1).get();
+		p2 = personaRepo.findById(dni2).get();
 		
+		if (p1.getEdad() > 18 && p2.getEdad() > 18 
+				&& !(p1.getTelefono().isEmpty() || p1.getEmail().isEmpty()) 
+				&& !(p2.getTelefono().isEmpty() || p2.getEmail().isEmpty())
+				&& p1.getDni() != p2.getDni()) {
+		
+					rel.setDni1(dni1);
+					rel.setDni2(dni2);
+					rel.setTipoDeRelacion(r);
+					relacionRepo.save(rel);
+					return true;
+    			}
+			else return false;
 	}
 	
 	public String getRelacionEntrePersonas(Long dni1, Long dni2) {
